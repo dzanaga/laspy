@@ -71,7 +71,8 @@ class LasWriter:
         from laspy.header import Version
         self.closefd = closefd
         self.encoding_errors = encoding_errors
-        self.header = Version(header.major, header.minor)
+        self.header = deepcopy(header)
+        self.header.version = Version(header.version.major, header.version.minor)
         self.header.partial_reset()
 
         self.dest = dest
