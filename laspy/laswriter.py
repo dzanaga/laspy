@@ -68,9 +68,10 @@ class LasWriter:
             Possible values and their explanation can be seen here:
             https://docs.python.org/3/library/codecs.html#error-handlers.
         """
+        from laspy.header import Version
         self.closefd = closefd
         self.encoding_errors = encoding_errors
-        self.header = deepcopy(header)
+        self.header = Version(header.major, header.minor)
         self.header.partial_reset()
 
         self.dest = dest
