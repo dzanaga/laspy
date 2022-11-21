@@ -77,7 +77,7 @@ class LasWriter:
         self.done = False
 
         dims.raise_if_version_not_compatible_with_fmt(
-            header.point_format.id, str(self.header.version)
+            header.point_format.id, str(header.version)
         )
 
         if laz_backend is not None:
